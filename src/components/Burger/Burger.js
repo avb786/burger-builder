@@ -3,8 +3,8 @@ import classes from "./Burger.module.css";
 import BurgerIngredenits from "./BurgerIngredeints/BurgerIngredeints";
 
 const Burger = (props) => {
-    let transformedIngredients = Object.keys(props.incredeints).map(ing => {
-        return [...Array(props.incredeints[ing])].map((_, i) => {
+    let transformedIngredients = Object.keys(props.ingredeints).map(ing => {
+        return [...Array(props.ingredeints[ing])].map((_, i) => {
             return <BurgerIngredenits key={ing + i} type={ing} />
         });
     }).reduce((arr, el) => {
