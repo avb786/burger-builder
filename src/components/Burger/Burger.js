@@ -8,7 +8,6 @@ const Burger = (props) => {
             return <BurgerIngredenits key={ing + i} type={ing} />
         });
     }).reduce((arr, el) => {
-        console.log(arr);
        return arr.concat(el)
     }, []);
 

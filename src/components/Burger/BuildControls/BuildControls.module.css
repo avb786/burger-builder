@@ -1,5 +1,5 @@
 .BuildControls {
-    width: 100vh;
+    width: 100vw;
     background-color: rgba(245, 165, 17, 0.788);
     display: flex;
     flex-flow: column;
