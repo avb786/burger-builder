@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Auxillary from '../../../hoc/Auxillary';
 import Button from '../../UI/Button/Button';
 
@@ -22,7 +21,7 @@ class OrderSummary extends Component {
         {this.ingredientsSummary}
       </ul>
       <p>
-        <strong>Total Price : {this.props.price}</strong>
+        <strong>Total Price : {this.props.price.toFixed(2)}</strong>
       </p>
       <p>Continue to Checkout</p>
       <Button btnType="Danger" clicked={this.props.purchaseCancel}>Cancel</Button>
