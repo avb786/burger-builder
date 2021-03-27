@@ -31,6 +31,7 @@ class BurgerBuilder extends Component {
     }
 
     componentDidMount() {
+        console.log("Props", this.props);
         axios.get('https://buildmyburger-747b9-default-rtdb.firebaseio.com/ingredients.json').then(res => {
             this.setState({
                 ingredeints: res.data
@@ -95,37 +96,38 @@ class BurgerBuilder extends Component {
         })
     }
     purchaseContinue = () => {
-        this.setState({
-            isLoader: true
-        })
-        const order = {
-            ingredients: this.state.ingredeints,
-            price: this.state.totalPrice,
-            customer: {
-                name: 'Aayush Bhankale',
-                address: {
-                    street: '557 CD Bhankale',
-                    city: 'Vadodara',
-                    state: 'Gujarat',
-                    country: 'India'
-                },
-                email: 'avb@gmail.com'
-            },
-            deliveryMethod: 'online'
-        }
-        axiosInstance.post('/order.json', order).then(res => {
-            console.log('Checkout', res);
-            this.setState({
-                isLoader: false,
-                purchasing: false
-            })
-        }).catch(error => {
-            this.setState({
-                isLoader: false,
-                purchasing: false
-            })
-            console.log("Checkout Error", error);
-        })
+        // this.setState({
+        //     isLoader: true
+        // })
+        // const order = {
+        //     ingredients: this.state.ingredeints,
+        //     price: this.state.totalPrice,
+        //     customer: {
+        //         name: 'Aayush Bhankale',
+        //         address: {
+        //             street: '557 CD Bhankale',
+        //             city: 'Vadodara',
+        //             state: 'Gujarat',
+        //             country: 'India'
+        //         },
+        //         email: 'avb@gmail.com'
+        //     },
+        //     deliveryMethod: 'online'
+        // }
+        // axiosInstance.post('/order.json', order).then(res => {
+        //     console.log('Checkout', res);
+        //     this.setState({
+        //         isLoader: false,
+        //         purchasing: false
+        //     })
+        // }).catch(error => {
+        //     this.setState({
+        //         isLoader: false,
+        //         purchasing: false
+        //     })
+        //     console.log("Checkout Error", error);
+        // })
+        this.props.history.push('/checkout')
     }
 
     purchaseCancelHandler = () => {
