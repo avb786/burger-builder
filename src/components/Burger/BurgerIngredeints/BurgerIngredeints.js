@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 class BurgerIngredenits extends React.Component {
     constructor(props) {
         super(props);
+        console.log('BurgerIngredenits', props);
     }
   render() {
     let ingredient = null;

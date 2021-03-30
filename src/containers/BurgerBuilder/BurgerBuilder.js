@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { Component } from "react";
-import axiosInstance from "../../axios-order";
 import BuildControls from "../../components/Burger/BuildControls/BuildControls";
 import Burger from "../../components/Burger/Burger";
 import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
@@ -96,38 +95,18 @@ class BurgerBuilder extends Component {
         })
     }
     purchaseContinue = () => {
-        // this.setState({
-        //     isLoader: true
-        // })
-        // const order = {
-        //     ingredients: this.state.ingredeints,
-        //     price: this.state.totalPrice,
-        //     customer: {
-        //         name: 'Aayush Bhankale',
-        //         address: {
-        //             street: '557 CD Bhankale',
-        //             city: 'Vadodara',
-        //             state: 'Gujarat',
-        //             country: 'India'
-        //         },
-        //         email: 'avb@gmail.com'
-        //     },
-        //     deliveryMethod: 'online'
-        // }
-        // axiosInstance.post('/order.json', order).then(res => {
-        //     console.log('Checkout', res);
-        //     this.setState({
-        //         isLoader: false,
-        //         purchasing: false
-        //     })
-        // }).catch(error => {
-        //     this.setState({
-        //         isLoader: false,
-        //         purchasing: false
-        //     })
-        //     console.log("Checkout Error", error);
-        // })
-        this.props.history.push('/checkout')
+       
+        const queryParam = []
+        for (const item in this.state.ingredeints) {
+            queryParam.push(encodeURIComponent(item) +'='+ encodeURIComponent(this.state.ingredeints[item]))
+        }
+        queryParam.push('price=' + this.state.totalPrice)
+        const queryString = queryParam.join('&');
+        console.log('queryString', queryString);
+        this.props.history.push({
+            pathname: '/checkout',
+            search: '?'+ queryString
+        })
     }
 
     purchaseCancelHandler = () => {
