@@ -15,6 +15,7 @@ function App() {
       <Route exact path='/orders' component={Orders} />
       <Route path='/checkout' component={Checkout} />
       <Route path='/checkout/contact-data' component={ContactData} />
+      <Route component={BurgerBuilder} />
     </Layout>
     </div>
   );
