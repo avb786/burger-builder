@@ -5,15 +5,16 @@ import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
 import Checkout from './containers/Checkout/Checkout';
 import { Route } from 'react-router';
 import ContactData from './containers/Checkout/ContactData/ContactData';
+import Orders from './containers/Orders/Orders';
 
 function App() {
   return (
     <div>
     <Layout>
       <Route exact path='/' component={BurgerBuilder} />
-      <Route exact path='/checkout' component={Checkout} />
-      <Route path={'/checkout/contact-data'}
-                     component={ContactData} />
+      <Route exact path='/orders' component={Orders} />
+      <Route path='/checkout' component={Checkout} />
+      <Route path='/checkout/contact-data' component={ContactData} />
     </Layout>
     </div>
   );
