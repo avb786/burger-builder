@@ -13,7 +13,7 @@ function App() {
     <Layout>
       <Route exact path='/' component={BurgerBuilder} />
       <Route exact path='/orders' component={Orders} />
-      <Route path='/checkout' component={Checkout} />
+      <Route exact path='/checkout' component={Checkout} />
       <Route path='/checkout/contact-data' component={ContactData} />
       <Route component={BurgerBuilder} />
     </Layout>
