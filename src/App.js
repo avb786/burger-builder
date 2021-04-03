@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Layout from './components/Layout/Layout';
 import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
@@ -12,7 +11,7 @@ function App(props) {
   return (
     <div>
     <Layout>
-      {props.location.pathname === "/burger-builder/" ? <Redirect to="/" /> : null}
+      {props.location.pathname === "/burger-builder" ? <Redirect to="/" /> : null}
       <Route exact path='/' component={BurgerBuilder} />
       <Route exact path='/orders' component={Orders} />
       <Route  path='/checkout' component={Checkout} />
