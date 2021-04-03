@@ -3,16 +3,16 @@ import './App.css';
 import Layout from './components/Layout/Layout';
 import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
 import Checkout from './containers/Checkout/Checkout';
-import { Route, withRouter } from 'react-router';
+import { Redirect, Route, withRouter } from 'react-router';
 import ContactData from './containers/Checkout/ContactData/ContactData';
 import Orders from './containers/Orders/Orders';
-
 
 function App(props) {
   console.log("APP Props", props);
   return (
     <div>
     <Layout>
+      {props.location.pathname === "/burger-builder/" ? <Redirect to="/" /> : null}
       <Route exact path='/' component={BurgerBuilder} />
       <Route exact path='/orders' component={Orders} />
       <Route  path='/checkout' component={Checkout} />
