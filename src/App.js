@@ -3,17 +3,19 @@ import './App.css';
 import Layout from './components/Layout/Layout';
 import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
 import Checkout from './containers/Checkout/Checkout';
-import { Route } from 'react-router';
+import { Route, withRouter } from 'react-router';
 import ContactData from './containers/Checkout/ContactData/ContactData';
 import Orders from './containers/Orders/Orders';
 
-function App() {
+
+function App(props) {
+  console.log("APP Props", props);
   return (
     <div>
     <Layout>
       <Route exact path='/' component={BurgerBuilder} />
       <Route exact path='/orders' component={Orders} />
-      <Route exact path='/checkout' component={Checkout} />
+      <Route  path='/checkout' component={Checkout} />
       <Route path='/checkout/contact-data' component={ContactData} />
       {/* <Route component={BurgerBuilder} /> */}
     </Layout>
@@ -21,4 +23,4 @@ function App() {
   );
 }
 
-export default App;
+export default withRouter(App);
